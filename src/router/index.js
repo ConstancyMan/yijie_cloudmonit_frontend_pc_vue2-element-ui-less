@@ -1,9 +1,14 @@
+// 导入vue库
 import Vue from 'vue'
+// 导入路由库
 import VueRouter from 'vue-router'
+// 引入登录组件
 import LoginView from '../views/LoginView.vue'
-
+// 引入注册组件
+import RegisterView from '../views/RegisterView.vue'
+// 挂载路由
 Vue.use(VueRouter)
-
+// 配置路由导航
 const routes = [
   {
     path: '/',
@@ -15,6 +20,11 @@ const routes = [
     component: LoginView
   },
   {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -23,9 +33,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ]
-
+// new一个路由实例
 const router = new VueRouter({
   routes
 })
-
+// 导出路由
 export default router

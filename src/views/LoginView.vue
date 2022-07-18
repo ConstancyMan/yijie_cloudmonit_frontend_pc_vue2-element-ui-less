@@ -62,7 +62,7 @@ export default {
         if (valid) {
           const responseObject = await this.$http.post('/api/login', this.loginForm)
           // 当服务端发生错误时：
-          if (responseObject.status !== 200) return this.ElMessage.error('提示:服务端登录接口错误!')
+          if (responseObject.status !== 200) return this.message.error('提示:服务端登录接口错误!')
           // 处理用户登录结果：
           const cod = responseObject.data.cod
           switch (cod) {
@@ -95,6 +95,8 @@ export default {
 <style scoped lang="less">
   // 登录页背景颜色：
   @loginBoxBgColor: #1b1b1b;
+  // 表单背景颜色：
+  @fromBgColor: rgba(55, 55, 55, 0.4);
   // 网站左上角标h2题字体颜色及重置密码和注册链接hover字体颜色：
   @richColor: #fafafa;
   // 登录按钮背景色：
@@ -124,7 +126,7 @@ export default {
       top: 15%;
       width: 458px;
       padding: 0 10px 10px;
-      background:rgba(55, 55, 55, 0.4);
+      background: @fromBgColor;
       border-radius: 5px;
       /* 用户名和用户密码及登录按钮 */
       .user_infor {
@@ -141,7 +143,7 @@ export default {
         padding-right: 50px;
         color: @welecomTitleColor;
         // 迎宾语加粗部分
-        span{
+        span {
           font-size: 25px;
         }
       }
@@ -156,9 +158,9 @@ export default {
         line-height:14px;
         color: @regAndRepassWord;
         text-decoration:none;
-      }
-      a:hover {
-        color: @richColor;
+        &:hover {
+          color: @richColor;
+        }
       }
     }
   }
