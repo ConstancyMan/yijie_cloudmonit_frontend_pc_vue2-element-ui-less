@@ -69,8 +69,7 @@ export default {
             case 200:
               this.$message.success('提示:登录成功!')
               window.sessionStorage.setItem('token', responseObject.data.token)
-              // 将当前用户userid存到store中
-              // this.$store.state.userId = responseObject.data.userId，这样修改可以实现功能，但是不科学
+              // 将当前用户userid存到store中,this.$store.state.userId = responseObject.data.userId，这样修改可以实现功能，但是不科学,需要如下commit触发vuex中的方法修改
               this.$store.commit('setUserId', responseObject.data.userId)
               this.$router.push('/home')
               break
@@ -94,11 +93,21 @@ export default {
 }
 </script>
 <style scoped lang="less">
+  // 登录页背景颜色：
+  @loginBoxBgColor: #1b1b1b;
+  // 网站左上角标h2题字体颜色及重置密码和注册链接hover字体颜色：
+  @richColor: #fafafa;
+  // 登录按钮背景色：
+  @submitBtnBgColor: #4696e6;
+  // 迎宾语字体颜色：
+  @welecomTitleColor: #4696e6;
+  // 注册和找回密码字体颜色：
+  @regAndRepassWord: #4696e6;
  /* login页面主盒子 */
   .login_box {
     width: 100%;
     height: 100%;
-    background: #1b1b1b url('../assets/images/bg.svg')  no-repeat top center;
+    background: @loginBoxBgColor url('../assets/images/bg.svg')  no-repeat top center;
     background-size: cover;
     /* 左上角大标题 */
     h2 {
@@ -106,7 +115,7 @@ export default {
       padding-top: 10px;
       font-size: 30px;
       line-height: 30px;
-      color: #fafafa;
+      color: @richColor;
     }
     /* 登录表单域 */
     .user_form {
@@ -115,7 +124,6 @@ export default {
       top: 15%;
       width: 458px;
       padding: 0 10px 10px;
-      /* border:1px solid rgb(6, 42, 248); */
       background:rgba(55, 55, 55, 0.4);
       border-radius: 5px;
       /* 用户名和用户密码及登录按钮 */
@@ -131,7 +139,7 @@ export default {
       h6 {
         font-size: 16px;
         padding-right: 50px;
-        color: #4696e6;
+        color: @welecomTitleColor;
         // 迎宾语加粗部分
         span{
           font-size: 25px;
@@ -140,17 +148,17 @@ export default {
       // 登录按钮
       .submit_btn{
         width: 455px!important;
-        background: #4696e6;
+        background: @submitBtnBgColor;
       }
       /* 注册和找回密码 */
       a {
         font-size:14px;
         line-height:14px;
-        color:rgb(40, 60, 233);
+        color: @regAndRepassWord;
         text-decoration:none;
       }
       a:hover {
-        color: #fafafa;
+        color: @richColor;
       }
     }
   }
