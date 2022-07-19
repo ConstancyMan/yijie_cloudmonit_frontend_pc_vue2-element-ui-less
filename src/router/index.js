@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 // 引入注册组件
 import RegisterView from '../views/RegisterView.vue'
+// 引入重置密码组件
+import ResetPasswordView from '../views/ResetPasswordView.vue'
 // 挂载路由
 Vue.use(VueRouter)
 // 配置路由导航
@@ -23,6 +25,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: RegisterView
+  },
+  {
+    path: '/resetpwd',
+    name: 'resetpwd',
+    component: ResetPasswordView
   },
   {
     path: '/about',

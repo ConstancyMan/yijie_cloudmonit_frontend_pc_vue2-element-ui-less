@@ -4,27 +4,36 @@
 
 // 将html、body、#app的高度设置为百分百高，且清除默认内外边距，且禁止选中
 html,body,#app{
+    height: 100%;
     margin: 0;
     padding: 0;
-    height: 100%;
     user-select: none;
 }
 /*  经测试element-ui中部分属性在vue单文件中修改不生效,需要在此文件中修改才生效： */
 // 登录页面input
 .login_box .user_form .el-input__inner{
     height: 50px;
-    background: transparent;
     color: @richColor;
+    background: transparent;
 }
 
 /* 注册页input */
 .reg_form .el-input__inner{
-    background: transparent;
     height: 50px!important;
     color: @richColor;
+    background: transparent;
 }
 
-
+/* 重置密码页 */
+.resetpwd_form .el-form-item__label {
+    color: @richColor;
+    line-height: 50px;
+}
+.resetpwd_form .el-input__inner{
+    height: 50px;
+    color: @richColor;
+    background: transparent;
+}
 
 
 
@@ -75,16 +84,7 @@ html,body,#app{
 .phonedialog .el-input__inner{
     background:#fafafa;
 }
-/* 重置密码组件label字体 */
-.resetpwd_box .el-form-item__label{
-    /* font-size:18px; */
-    color:#fff;
-    line-height:50px;
-}
-.resetpwd_box .el-input__inner{
-    background:transparent;
-    color:#fff;
-}
+
 /* 添加用户列表 */
 .clientbox .el-dialog__header,
 .clientbox .el-dialog__body,
